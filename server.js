@@ -6,8 +6,11 @@ console.log("hello basics.....");
 // ES6 (include "type":"module" inside package.json)
 import express from "express";
 import cors from 'cors'
+import dotenv from 'dotenv'
+dotenv.config()
 
 const app = express();
+const x = 1
 
 app.use(cors({
   origin: 'http://localhost:3000'
@@ -24,7 +27,8 @@ app.get("/", (req, res) => {
 });
 
 app.get("/demo", (req, res) => {
-    res.json({"msg":"hello demo", "secret":"123456"});
+  console.log(process.env)
+    res.json({"msg":"hello demo", "secret":process.env.REACT_APP_SECRET_KEY});
   });
 
 app.set('view engine', "ejs")
