@@ -17,3 +17,7 @@ app.get("/", (req, res) => {
   res.json({"msg":"hello basics"});
 });
 
+app.get("/demo", (req, res) => {
+    res.json({"msg":"hello demo"});
+  });
+
