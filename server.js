@@ -21,3 +21,9 @@ app.get("/demo", (req, res) => {
     res.json({"msg":"hello demo"});
   });
 
+app.set('view engine', "ejs")
+
+app.get("/home", (req, res) => {
+    res.render("home", {"msg":"hello one", "secret":"123456"});
+  }); 
+
