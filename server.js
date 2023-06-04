@@ -28,13 +28,18 @@ app.get("/", (req, res) => {
 
 app.get("/demo", (req, res) => {
   console.log(process.env);
-  res.json({ msg: "hello demo", secret: process.env.REACT_APP_SECRET_KEY });
+  // res.json({ msg: "hello demo", secret: process.env.REACT_APP_SECRET_KEY });
+  res.json({ msg: "hello demo", secret: Date.now() });
 });
 
 app.set("view engine", "ejs");
 
 app.get("/home", (req, res) => {
   res.render("home", { msg: "hello one", secret: "123456" });
+});
+
+app.get("/contact", (req, res) => {
+  res.render("contact", { msg: "hello one", secret: "123456" });
 });
 
 app.get("/about", (req, res) => {
